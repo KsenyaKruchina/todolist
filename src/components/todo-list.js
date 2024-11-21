@@ -5,9 +5,7 @@ const TodoList = ({ todos }) => {
   const elements = todos.map((item, index) => {
     return (
       <li>
-        <TodoListItem 
-          label={item.label} 
-          important={item.important} 
+        <TodoListItem {...item} 
         />
       </li>
     );
