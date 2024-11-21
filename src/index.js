@@ -6,7 +6,6 @@ import SearchPanel from './components/search-panel';
 import TodoList from './components/todo-list';
 
 const App = () => {
-  
   const todoData = [
     { id: 1, label: 'Drink Coffee', important: false },
     { id: 2, label: 'Implement React Application', important: true },
