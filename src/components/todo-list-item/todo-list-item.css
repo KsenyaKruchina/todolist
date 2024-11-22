@@ -1,11 +1,11 @@
 .todo-list-item {
   font-size: 1.25rem;
   cursor: pointer;
-  transition: all 0.3s ease; 
+  transition: all 0.3s ease;
 }
 
 .todo-list-item.done .todo-list-item-label {
-  text-decoration: line-through; 
+  text-decoration: line-through;
   color: grey;
 }
 

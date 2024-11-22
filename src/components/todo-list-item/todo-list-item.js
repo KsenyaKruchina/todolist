@@ -2,21 +2,21 @@ import React, { Component } from 'react';
 import './todo-list-item.css';
 
 export default class TodoListItem extends Component {
-
+  
   state = {
-    done: false, 
-    important: false, 
+    done: false,
+    important: false,
   };
 
   onLabelClick = () => {
-    this.setState((state) => ({
-      done: !state.done, 
+    this.setState(({ done }) => ({
+      done: !done, 
     }));
   };
 
   onMarkImportant = () => {
-    this.setState((state) => ({
-      important: !state.important, 
+    this.setState(({ important }) => ({
+      important: !important,
     }));
   };
 
@@ -29,7 +29,7 @@ export default class TodoListItem extends Component {
       classNames += ' done'; 
     }
     if (important) {
-      classNames += ' important'; 
+      classNames += ' important'; я
     }
 
     return (
