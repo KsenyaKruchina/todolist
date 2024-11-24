@@ -13,7 +13,7 @@ export default class App extends Component {
     todoData: [
       { label: 'Drink Coffee', important: false, id: 1 },
       { label: 'Make Awesome App', important: true, id: 2 },
-      { label: 'Have a Lunch', important: false, id: 3 },
+      { label: 'Have a lunch', important: false, id: 3 },
     ],
   };
 
@@ -46,6 +46,14 @@ export default class App extends Component {
     });
   };
 
+  onToggleImportant = (id) => {
+    console.log('Toggle Important', id); 
+  };
+
+  onToggleDone = (id) => {
+    console.log('Toggle Done', id); 
+  };
+
   render() {
     return (
       <div className="todo-app">
@@ -57,6 +65,8 @@ export default class App extends Component {
         <TodoList
           todos={this.state.todoData}
           onDeleted={this.deleteItem}
+          onToggleImportant={this.onToggleImportant}
+          onToggleDone={this.onToggleDone}
         />
         <ItemAddForm onItemAdded={this.addItem} />
       </div>
