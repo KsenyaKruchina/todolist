@@ -1,19 +1,18 @@
 .todo-list-item {
   font-size: 1.25rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease; 
 }
 
 .todo-list-item.done .todo-list-item-label {
-  text-decoration: line-through;
-  color: grey;
+  text-decoration: line-through; 
+  color: grey; 
 }
 
 .todo-list-item.important .todo-list-item-label {
   font-weight: bold;
-  color: steelblue;
+  color: steelblue; 
 }
-
 .todo-list-item button {
   margin-left: 10px;
   width: 35px;

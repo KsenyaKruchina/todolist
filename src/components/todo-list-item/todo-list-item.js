@@ -2,21 +2,20 @@ import React, { Component } from 'react';
 import './todo-list-item.css';
 
 export default class TodoListItem extends Component {
-  
   state = {
     done: false,
     important: false,
   };
 
   onLabelClick = () => {
-    this.setState(({ done }) => ({
-      done: !done, 
+    this.setState((state) => ({
+      done: !state.done, // Переключение состояния "done"
     }));
   };
 
   onMarkImportant = () => {
-    this.setState(({ important }) => ({
-      important: !important,
+    this.setState((state) => ({
+      important: !state.important, // Переключение состояния "important"
     }));
   };
 
@@ -26,24 +25,24 @@ export default class TodoListItem extends Component {
 
     let classNames = 'todo-list-item';
     if (done) {
-      classNames += ' done'; 
+      classNames += ' done';
     }
     if (important) {
-      classNames += ' important'; я
+      classNames += ' important';
     }
 
     return (
       <span className={classNames}>
         <span
           className="todo-list-item-label"
-          onClick={this.onLabelClick} 
+          onClick={this.onLabelClick}
         >
           {label}
         </span>
         <button
           type="button"
           className="btn btn-outline-success btn-sm float-right"
-          onClick={this.onMarkImportant} 
+          onClick={this.onMarkImportant}
         >
           <i className="fa fa-exclamation" />
         </button>
