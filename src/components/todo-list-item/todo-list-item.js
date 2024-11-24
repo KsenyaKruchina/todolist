@@ -2,30 +2,8 @@ import React, { Component } from 'react';
 import './todo-list-item.css';
 
 export default class TodoListItem extends Component {
-  state = {
-    done: false,
-    important: false,
-  };
-
-  onLabelClick = () => {
-    this.setState(({ done }) => {
-      return {
-        done: !done,
-      };
-    });
-  };
-
-  onMarkImportant = () => {
-    this.setState(({ important }) => {
-      return {
-        important: !important,
-      };
-    });
-  };
-
   render() {
-    const { label, onDeleted, onToggleImportant, onToggleDone } = this.props;
-    const { done, important } = this.state;
+    const { label, onDeleted, onToggleImportant, onToggleDone, important, done } = this.props;
 
     let classNames = 'todo-list-item';
     if (done) {
