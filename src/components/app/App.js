@@ -7,11 +7,13 @@ import ItemAddForm from '../item-add-form';
 import './app.css';
 
 export default class App extends Component {
+  maxId = 100; 
+
   state = {
     todoData: [
       { label: 'Drink Coffee', important: false, id: 1 },
       { label: 'Make Awesome App', important: true, id: 2 },
-      { label: 'Have a lunch', important: false, id: 3 },
+      { label: 'Have a Lunch', important: false, id: 3 },
     ],
   };
 
@@ -29,7 +31,20 @@ export default class App extends Component {
     });
   };
 
+  addItem = (text) => {
+    const newItem = {
+      label: text,
+      important: false,
+      id: this.maxId++, 
+    };
 
+    this.setState(({ todoData }) => {
+      const newArray = [...todoData, newItem];
+      return {
+        todoData: newArray,
+      };
+    });
+  };
 
   render() {
     return (
@@ -43,7 +58,7 @@ export default class App extends Component {
           todos={this.state.todoData}
           onDeleted={this.deleteItem}
         />
-        <ItemAddForm /> 
+        <ItemAddForm onItemAdded={this.addItem} />
       </div>
     );
   }
