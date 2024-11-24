@@ -3,6 +3,7 @@ import AppHeader from '../app-header';
 import SearchPanel from '../search-panel';
 import TodoList from '../todo-list';
 import ItemStatusFilter from '../item-status-filter';
+import ItemAddForm from '../item-add-form'; 
 import './app.css';
 
 export default class App extends Component {
@@ -18,15 +19,17 @@ export default class App extends Component {
     this.setState(({ todoData }) => {
       const idx = todoData.findIndex((element) => element.id === id);
       const newArray = [
-        ... todoData.slice(0, idx),
-        ... todoData.slice(idx + 1) 
+        ...todoData.slice(0, idx),
+        ...todoData.slice(idx + 1),
       ];
 
       return {
-        todoData: newArray, 
+        todoData: newArray,
       };
     });
   };
+
+
 
   render() {
     return (
@@ -38,8 +41,9 @@ export default class App extends Component {
         </div>
         <TodoList
           todos={this.state.todoData}
-          onDeleted={this.deleteItem} 
+          onDeleted={this.deleteItem}
         />
+        <ItemAddForm /> 
       </div>
     );
   }
