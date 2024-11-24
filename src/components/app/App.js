@@ -1,25 +1,33 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import TodoList from './components/todo-list';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    todoData: [
+      { id: 1, label: 'Drink Coffee', important: false },
+      { id: 2, label: 'Make Awesome App', important: true },
+      { id: 3, label: 'Have a lunch', important: false },
+    ],
+  };
+
+  onDeleted = (id) => {
+    this.setState(({ todoData }) => {
+      const idx = todoData.findIndex((el) => el.id === id);
+      const newArray = [...todoData.slice(0, idx), ...todoData.slice(idx + 1)];
+      return { todoData: newArray };
+    });
+  };
+
+  render() {
+    const { todoData } = this.state;
+
+    return (
+      <div className="todo-app">
+        <TodoList todos={todoData} onDeleted={this.onDeleted} />
+      </div>
+    );
+  }
 }
 
 export default App;
